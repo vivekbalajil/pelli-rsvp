@@ -1,763 +1,390 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Siddharth & Ananya | Wedding Celebrations</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Kalyanamasthu | Telugu Wedding Invitation & RSVP</title>
 
-    <!-- Google Fonts: Playfair Display for royal serif headings, Cormorant Garamond, and Plus Jakarta Sans -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Traditional Serif & Telugu Calligraphy style -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@600;700;900&family=Great+Vibes&family=Marcellus&family=Tiro+Telugu:ital@0;1&family=Cinzel:wght@500;700;800&display=swap" rel="stylesheet">
 
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root {
+      --gold-bright: #fcd34d;
+      --gold-dark: #b45309;
+      --deep-maroon: #681515;
+      --temple-stone: #38423f;
+    }
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        maroon: {
-                            800: '#5c131d',
-                            900: '#3e0910',
-                            950: '#270308',
-                        },
-                        gold: {
-                            300: '#f6e089',
-                            400: '#e5c158',
-                            500: '#cda235',
-                            600: '#ab811f',
-                        },
-                        turmeric: '#f59e0b',
-                        ivory: '#fcfaf6',
-                        warmcard: '#fffdfa',
-                    },
-                    fontFamily: {
-                        serif: ['"Playfair Display"', 'serif'],
-                        cinzel: ['"Cinzel"', 'serif'],
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
+    body {
+      font-family: 'Marcellus', serif;
+      background-color: #171c14;
+      color: #2b2b2b;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      -webkit-tap-highlight-color: transparent;
+    }
 
-    <style>
-        /* Decorative Indian gold border pattern */
-        .gold-border-decor {
-            border-image: linear-gradient(to right, transparent, #cda235, transparent) 1;
-        }
+    .font-traditional {
+      font-family: 'Cinzel Decorative', cursive, serif;
+    }
 
-        /* Subtle silk/grain background overlay */
-        .bg-festive-pattern {
-            background-color: #fbf8f2;
-            background-image: radial-gradient(#cda23518 0.75px, transparent 0.75px), radial-gradient(#800e1312 0.75px, #fbf8f2 0.75px);
-            background-size: 30px 30px;
-            background-position: 0 0, 15px 15px;
-        }
+    .font-script {
+      font-family: 'Great Vibes', cursive;
+    }
 
-        .gold-shimmer {
-            background: linear-gradient(90deg, #b38728 0%, #fbf5b7 50%, #b38728 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+    .font-cinzel {
+      font-family: 'Cinzel', serif;
+    }
 
-        /* Custom subtle scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #270308;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #cda235;
-            border-radius: 4px;
-        }
-    </style>
+    /* Traditional Golden Border Frame */
+    .temple-frame {
+      border: 10px solid transparent;
+      border-image: linear-gradient(to bottom, #d4af37, #aa7c11, #fff2a8, #996515) 12;
+      box-shadow: inset 0 0 15px rgba(180, 83, 9, 0.25);
+    }
+
+    /* Golden Door 3D Perspective */
+    .door-scene {
+      perspective: 1200px;
+    }
+
+    .door-panel {
+      transform-style: preserve-3d;
+      transition: transform 1.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .door-left {
+      transform-origin: left center;
+    }
+
+    .door-right {
+      transform-origin: right center;
+    }
+
+    .doors-open .door-left {
+      transform: rotateY(-110deg);
+    }
+
+    .doors-open .door-right {
+      transform: rotateY(110deg);
+    }
+
+    /* Screen Transitions */
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.4s ease forwards;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes gentlePulse {
+      0%, 100% { transform: scale(1); opacity: 0.95; }
+      50% { transform: scale(1.05); opacity: 1; }
+    }
+
+    .pulse-glow {
+      animation: gentlePulse 2.5s infinite ease-in-out;
+    }
+
+    /* Hanging Bells */
+    @keyframes bellSway {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(4deg); }
+      75% { transform: rotate(-4deg); }
+    }
+
+    .swaying-bell {
+      transform-origin: top center;
+      animation: bellSway 3s infinite ease-in-out;
+    }
+
+    .bell-delay {
+      animation-delay: 1.5s;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 4px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #c5a059;
+      border-radius: 4px;
+    }
+  </style>
 </head>
-<body class="bg-festive-pattern text-slate-800 font-sans antialiased selection:bg-gold-500 selection:text-white">
 
-    <!-- =================================================================
-         GITHUB PAGES HOSTING GUIDE:
-         1. Create a new GitHub repository (e.g., "our-wedding" or "username.github.io").
-         2. Save this file as `index.html` and commit/push it to the repository.
-         3. On GitHub, go to: Settings -> Pages -> Source: select branch 'main' / root folder -> Save.
-         4. Your wedding website is live instantly with free HTTPS!
-         5. Update the GOOGLE_FORM_URL placeholder below with your real Google Form link.
-    ================================================================== -->
+<body class="flex justify-center min-h-screen py-0 sm:py-6">
+  <!-- Mobile App-like Container -->
+  <div class="w-full max-w-[430px] min-h-screen bg-[#fcfaf5] relative shadow-2xl flex flex-col justify-between overflow-hidden temple-frame border-amber-600">
 
-    <!-- NAVIGATION BAR -->
-    <header class="sticky top-0 z-50 backdrop-blur-md bg-maroon-950/90 text-ivory border-b border-gold-500/30 transition-all duration-300 shadow-md">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-18 py-3 flex items-center justify-between">
-            <a href="#hero" class="flex items-center space-x-2 group">
-                <span class="text-xl sm:text-2xl font-cinzel font-bold text-gold-400 tracking-widest group-hover:text-gold-300 transition-colors">S & A</span>
-                <span class="text-xs uppercase tracking-widest text-gold-300/80 hidden sm:inline-block border-l border-gold-500/40 pl-2">Wedding</span>
-            </a>
+    <!-- ==================================================== -->
+    <!-- TOP TEMPLE TORANAM (Flower Garlands & Temple Bells)  -->
+    <!-- ==================================================== -->
+    <header class="relative w-full z-20 pointer-events-none select-none">
+      <!-- Mango leaf & Jasmine Garland SVG -->
+      <div class="w-full h-14 bg-gradient-to-b from-[#405436] to-transparent p-1 flex justify-around items-start">
+        <span class="text-xl">🍃</span>
+        <span class="text-2xl swaying-bell">🔔</span>
+        <span class="text-xl">🌼</span>
+        <span class="text-2xl swaying-bell bell-delay">🔔</span>
+        <span class="text-xl">🌸</span>
+        <span class="text-2xl swaying-bell">🔔</span>
+        <span class="text-xl">🍃</span>
+      </div>
 
-            <!-- Desktop Links -->
-            <nav class="hidden md:flex items-center space-x-6 text-sm font-medium tracking-wide">
-                <a href="#couple" class="text-gray-200 hover:text-gold-300 transition-colors">The Couple</a>
-                <a href="#events" class="text-gray-200 hover:text-gold-300 transition-colors">Celebrations</a>
-                <a href="#schedule" class="text-gray-200 hover:text-gold-300 transition-colors">Schedule</a>
-                <a href="#venue" class="text-gray-200 hover:text-gold-300 transition-colors">Venues</a>
-                <a href="#faq" class="text-gray-200 hover:text-gold-300 transition-colors">FAQ</a>
-            </nav>
-
-            <!-- RSVP Quick Action Button -->
-            <div class="flex items-center space-x-3">
-                <a href="#rsvp" class="bg-gradient-to-r from-gold-500 to-gold-400 hover:from-gold-400 hover:to-gold-300 text-maroon-950 font-semibold px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm tracking-wider uppercase shadow-md hover:shadow-lg hover:scale-105 transition transform duration-200 flex items-center gap-1.5">
-                    <i data-lucide="mail-check" class="w-4 h-4"></i>
-                    <span>RSVP Now</span>
-                </a>
-
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" aria-label="Toggle Menu" class="md:hidden p-2 rounded-lg text-gold-400 hover:bg-maroon-900 focus:outline-none">
-                    <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
-                </button>
-            </div>
+      <!-- Sacred Sri Vaishnava Namam (Shankha, Namam, Chakra) -->
+      <div class="flex justify-center items-center gap-3 -mt-2">
+        <!-- Shankha -->
+        <svg class="w-7 h-7 text-[#c89d3c]" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+        </svg>
+        <!-- Thiruman / Namam -->
+        <div class="flex items-end justify-center gap-1 bg-[#fffcee] px-3 py-1 rounded-full border border-amber-400 shadow-sm">
+          <span class="w-2 h-7 bg-white rounded-t-sm border border-gray-300"></span>
+          <span class="w-2 h-8 bg-[#c0392b] rounded-t-sm shadow-sm"></span>
+          <span class="w-2 h-7 bg-white rounded-t-sm border border-gray-300"></span>
         </div>
-
-        <!-- Mobile Drawer Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-maroon-950 border-b border-gold-500/20 px-6 py-4 space-y-3 text-center">
-            <a href="#couple" class="mobile-nav-link block py-2 text-gray-200 hover:text-gold-300 font-medium">The Couple</a>
-            <a href="#events" class="mobile-nav-link block py-2 text-gray-200 hover:text-gold-300 font-medium">Celebrations</a>
-            <a href="#schedule" class="mobile-nav-link block py-2 text-gray-200 hover:text-gold-300 font-medium">Schedule</a>
-            <a href="#venue" class="mobile-nav-link block py-2 text-gray-200 hover:text-gold-300 font-medium">Venues</a>
-            <a href="#faq" class="mobile-nav-link block py-2 text-gray-200 hover:text-gold-300 font-medium">FAQ</a>
-        </div>
+        <!-- Sudarshana Chakra -->
+        <svg class="w-7 h-7 text-[#c89d3c]" viewBox="0 0 24 24" fill="currentColor">
+          <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2" fill="none"/>
+          <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07L19.07 4.93"/>
+        </svg>
+      </div>
     </header>
 
-    <!-- HERO SECTION -->
-    <section id="hero" class="relative min-h-[90vh] flex items-center justify-center text-center px-4 overflow-hidden bg-gradient-to-b from-maroon-950 via-maroon-900 to-maroon-950 text-ivory pt-10 pb-20">
-        <!-- Decorative Traditional Floral Mandap Border Artwork (SVG) -->
-        <div class="absolute inset-0 opacity-10 pointer-events-none flex items-center justify-center">
-            <svg class="w-[800px] h-[800px]" viewBox="0 0 100 100" fill="none" stroke="#e5c158" stroke-width="0.5">
-                <circle cx="50" cy="50" r="45" />
-                <circle cx="50" cy="50" r="35" stroke-dasharray="1 2"/>
-                <path d="M50 5 Q55 25 50 45 Q45 25 50 5" />
-                <path d="M50 95 Q55 75 50 55 Q45 75 50 95" />
-                <path d="M5 50 Q25 55 45 50 Q25 45 5 50" />
-                <path d="M95 50 Q75 55 55 50 Q75 45 95 50" />
-                <circle cx="50" cy="50" r="10" />
-            </svg>
+    <!-- ==================================================== -->
+    <!-- STAGE 1: TEMPLE GOPURAM & OPENING GOLDEN DOORS       -->
+    <!-- ==================================================== -->
+    <section id="stage-doors" class="relative z-10 flex-1 flex flex-col justify-between items-center text-center px-4 py-3">
+      <!-- Auspicious Sanskrit Chants -->
+      <div class="mt-1">
+        <p class="text-[11px] tracking-[0.25em] text-[#8e4823] font-bold uppercase">|| Sreerasthu &bull; Subhamasthu &bull; Kalyanamasthu ||</p>
+        <p class="text-[10px] text-gray-600 italic tracking-wider mt-0.5">Sreemathe Ramanujaya Namaha</p>
+      </div>
+
+      <!-- Sacred Padalu & Lotus -->
+      <div class="my-auto relative flex flex-col items-center">
+        <!-- Divine Rays Backlight -->
+        <div class="absolute -top-12 w-48 h-48 bg-amber-300/30 rounded-full blur-2xl -z-10 pulse-glow"></div>
+
+        <!-- Gopuram Silhouette Backdrop -->
+        <div class="w-56 h-36 relative mb-2 flex items-center justify-center">
+          <svg class="w-full h-full text-[#4a5848]/20" viewBox="0 0 200 150" fill="currentColor">
+            <path d="M100 5 L115 35 L125 35 L130 65 L140 65 L150 110 L160 110 L170 150 L30 150 L40 110 L50 110 L60 65 L70 65 L85 35 L100 5 Z"/>
+          </svg>
+          <div class="absolute inset-0 flex flex-col items-center justify-center">
+            <span class="text-3xl">🪷</span>
+            <p class="text-[11px] font-traditional font-bold text-amber-900 tracking-widest mt-1">SRI VARI PADALU</p>
+          </div>
         </div>
 
-        <div class="relative z-10 max-w-4xl mx-auto space-y-6">
-            <!-- Traditional Blessings Invocations -->
-            <div class="inline-block px-4 py-1.5 rounded-full border border-gold-400/40 bg-gold-500/10 backdrop-blur-sm mb-2">
-                <p class="font-cinzel text-xs sm:text-sm tracking-[0.25em] text-gold-300 uppercase">
-                    Om Sri Ganeshaya Namaha
-                </p>
-            </div>
+        <h1 class="font-script text-4xl text-[#782222] my-1">Sunayana &amp; Sukesh</h1>
+        <p class="text-xs uppercase tracking-[0.2em] text-[#7d5e27] font-semibold">Wedding Invitation</p>
+      </div>
 
-            <p class="font-serif italic text-lg sm:text-2xl text-gold-200/90 font-light tracking-wide">
-                Together with their families, invite you to celebrate the wedding of
-            </p>
-
-            <h1 class="text-4xl sm:text-6xl md:text-7xl font-serif font-bold tracking-tight text-ivory">
-                <span class="block">Siddharth Rao</span>
-                <span class="text-2xl sm:text-4xl text-gold-400 font-cinzel my-2 block font-normal">&amp;</span>
-                <span class="block">Ananya Reddy</span>
-            </h1>
-
-            <div class="flex items-center justify-center gap-3 my-4">
-                <div class="h-[1px] w-12 bg-gradient-to-r from-transparent to-gold-400"></div>
-                <i data-lucide="sparkles" class="w-5 h-5 text-gold-400"></i>
-                <div class="h-[1px] w-12 bg-gradient-to-l from-transparent to-gold-400"></div>
-            </div>
-
-            <p class="text-base sm:text-xl font-cinzel tracking-widest text-gold-300">
-                DECEMBER 14, 2026 &bull; HYDERABAD, INDIA
-            </p>
-
-            <!-- COUNTDOWN TIMER -->
-            <div class="pt-8">
-                <div class="text-xs uppercase tracking-widest text-gold-400/80 mb-4 font-semibold">Counting Down To Muhurtham</div>
-                <div class="grid grid-cols-4 gap-2 sm:gap-4 max-w-md mx-auto text-center">
-                    <div class="bg-maroon-900/60 backdrop-blur-md border border-gold-500/30 p-2 sm:p-4 rounded-xl shadow-inner">
-                        <span id="days" class="block text-2xl sm:text-4xl font-bold font-cinzel text-gold-300">00</span>
-                        <span class="text-[10px] sm:text-xs text-slate-300 uppercase tracking-wider">Days</span>
-                    </div>
-                    <div class="bg-maroon-900/60 backdrop-blur-md border border-gold-500/30 p-2 sm:p-4 rounded-xl shadow-inner">
-                        <span id="hours" class="block text-2xl sm:text-4xl font-bold font-cinzel text-gold-300">00</span>
-                        <span class="text-[10px] sm:text-xs text-slate-300 uppercase tracking-wider">Hours</span>
-                    </div>
-                    <div class="bg-maroon-900/60 backdrop-blur-md border border-gold-500/30 p-2 sm:p-4 rounded-xl shadow-inner">
-                        <span id="minutes" class="block text-2xl sm:text-4xl font-bold font-cinzel text-gold-300">00</span>
-                        <span class="text-[10px] sm:text-xs text-slate-300 uppercase tracking-wider">Mins</span>
-                    </div>
-                    <div class="bg-maroon-900/60 backdrop-blur-md border border-gold-500/30 p-2 sm:p-4 rounded-xl shadow-inner">
-                        <span id="seconds" class="block text-2xl sm:text-4xl font-bold font-cinzel text-gold-300">00</span>
-                        <span class="text-[10px] sm:text-xs text-slate-300 uppercase tracking-wider">Secs</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Call to Actions -->
-            <div class="pt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="#rsvp" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-gradient-to-r from-gold-500 via-gold-400 to-gold-500 text-maroon-950 font-bold uppercase tracking-wider text-sm shadow-xl hover:shadow-gold-500/20 hover:scale-105 transition-transform duration-200">
-                    RSVP to Attend
-                </a>
-                <a href="#events" class="w-full sm:w-auto px-8 py-3.5 rounded-full border border-gold-400 text-gold-300 hover:bg-gold-500/10 font-semibold uppercase tracking-wider text-sm transition">
-                    View Schedule &amp; Venues
-                </a>
-            </div>
+      <!-- Golden Temple Doors Scene -->
+      <div id="doorScene" class="door-scene w-72 h-44 relative cursor-pointer my-2 rounded-t-xl overflow-hidden shadow-2xl border-4 border-[#b47a28]" onclick="openTempleDoors()">
+        <!-- Inside Lord Venkateswara Darshan (revealed when opened) -->
+        <div class="absolute inset-0 bg-gradient-to-b from-[#2b1f13] via-[#4d3215] to-[#120c08] flex flex-col items-center justify-center p-2 text-center text-white">
+          <span class="text-4xl filter drop-shadow-[0_0_12px_rgba(255,215,0,0.8)]">🙏</span>
+          <p class="font-traditional text-sm text-amber-300 font-bold mt-1">Lord Venkateswara Swamy</p>
+          <p class="text-[10px] text-amber-100 tracking-wider">With Divine Blessings</p>
         </div>
+
+        <!-- Left Golden Door Leaf -->
+        <div class="door-panel door-left absolute top-0 left-0 w-1/2 h-full bg-gradient-to-r from-[#d4af37] via-[#f7e49a] to-[#aa7c11] border-r-2 border-[#543b0d] flex flex-col justify-around items-center p-2 shadow-inner">
+          <div class="w-8 h-8 rounded-full border border-amber-900/40 flex items-center justify-center text-xs">🔔</div>
+          <div class="w-8 h-8 rounded-full border border-amber-900/40 flex items-center justify-center text-xs">🕉️</div>
+          <div class="w-8 h-8 rounded-full border border-amber-900/40 flex items-center justify-center text-xs">🪷</div>
+        </div>
+
+        <!-- Right Golden Door Leaf -->
+        <div class="door-panel door-right absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#d4af37] via-[#f7e49a] to-[#aa7c11] border-l-2 border-[#543b0d] flex flex-col justify-around items-center p-2 shadow-inner">
+          <div class="w-8 h-8 rounded-full border border-amber-900/40 flex items-center justify-center text-xs">🔔</div>
+          <div class="w-8 h-8 rounded-full border border-amber-900/40 flex items-center justify-center text-xs">🕉️</div>
+          <div class="w-8 h-8 rounded-full border border-amber-900/40 flex items-center justify-center text-xs">🪷</div>
+        </div>
+      </div>
+
+      <!-- Open Door Prompt -->
+      <button onclick="openTempleDoors()" class="mb-3 px-6 py-2 rounded-full bg-gradient-to-r from-[#aa7c11] via-[#d4af37] to-[#aa7c11] text-white font-cinzel text-xs font-bold uppercase tracking-widest shadow-md hover:scale-105 active:scale-95 transition-all">
+        ✨ Tap To Open Temple Dwaram ✨
+      </button>
     </section>
 
-    <!-- COUPLE SECTION -->
-    <section id="couple" class="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
-        <div class="text-center max-w-2xl mx-auto mb-14">
-            <span class="text-gold-600 font-cinzel text-xs uppercase tracking-widest font-semibold block mb-2">Our Journey</span>
-            <h2 class="text-3xl sm:text-4xl font-serif text-maroon-950 font-bold">The Bride & Groom</h2>
-            <div class="w-16 h-0.5 bg-gold-500 mx-auto mt-4"></div>
-            <p class="mt-4 text-slate-600 text-sm sm:text-base leading-relaxed">
-                From college library encounters to endless filter coffees in Hyderabad and mutual love for weekend hikes, two souls found one destiny.
-            </p>
+    <!-- ==================================================== -->
+    <!-- STAGE 2: LAGNA PATRIKA (TRADITIONAL WEDDING HUB)     -->
+    <!-- ==================================================== -->
+    <section id="stage-invitation" class="relative z-10 flex-1 flex-col justify-between hidden px-4 pb-4 pt-1">
+      
+      <!-- Invitation Header -->
+      <div class="text-center bg-[#fff8eb] p-3 rounded-xl border border-amber-200/80 shadow-sm mb-3">
+        <p class="text-[9px] uppercase tracking-[0.25em] text-[#93471c] font-bold">|| SREERASTHU &bull; SUBHAMASTHU &bull; KALYANAMASTHU ||</p>
+        <p class="text-[10px] text-gray-600 font-serif italic mt-0.5">With the divine blessings of Lord Sree Venkateswara Swamy</p>
+        
+        <!-- Host Elder Lineage -->
+        <p class="text-xs font-bold text-gray-800 mt-2 font-cinzel">Sri Manepally Rama Rao &amp; Smt. Vijaya Lakshmi</p>
+        <p class="text-[11px] text-gray-600">request the pleasure of your gracious presence at the wedding ceremony of their grand daughter</p>
+
+        <!-- Couple Names & Lineage -->
+        <div class="my-3 py-2 border-y border-amber-200 bg-white/70 rounded">
+          <h2 class="font-script text-3xl sm:text-4xl text-[#7b1b1b] font-bold">Sunayana</h2>
+          <p class="text-[11px] text-[#695439] font-medium">(D/o Smt. Srilatha &amp; Sri Murali Krishna Manepally)</p>
+          <p class="text-xs font-bold text-amber-800 tracking-widest my-1 font-traditional">WEDS</p>
+          <h2 class="font-script text-3xl sm:text-4xl text-[#7b1b1b] font-bold">Sukesh</h2>
+          <p class="text-[11px] text-[#695439] font-medium">(S/o Smt. Madhavi &amp; Sri Srinivasu Bukka)</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <!-- Groom Card -->
-            <div class="bg-warmcard rounded-2xl p-6 sm:p-8 border border-gold-300/60 shadow-lg text-center hover:shadow-xl transition relative overflow-hidden group">
-                <div class="w-36 h-36 mx-auto rounded-full p-1 bg-gradient-to-tr from-gold-500 to-maroon-800 shadow-md mb-4">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fit=crop&w=400&h=400&q=80" 
-                         alt="Groom Siddharth" 
-                         onerror="this.src='https://placehold.co/400x400/5c131d/ffffff?text=Siddharth'"
-                         class="w-full h-full object-cover rounded-full">
-                </div>
-                <h3 class="text-2xl font-serif font-bold text-maroon-950">Siddharth Rao</h3>
-                <p class="text-xs font-cinzel uppercase tracking-widest text-gold-600 font-medium mb-3">The Groom</p>
-                <p class="text-slate-600 text-sm leading-relaxed mb-4">
-                    Son of Smt. Radhika &amp; Sri Narayana Rao. Software architect, avid traveler, and the calmer half who keeps things grounded.
-                </p>
-                <div class="text-xs text-maroon-900 font-medium italic">"Can't wait to begin this life chapter with Ananya by my side."</div>
-            </div>
-
-            <!-- Bride Card -->
-            <div class="bg-warmcard rounded-2xl p-6 sm:p-8 border border-gold-300/60 shadow-lg text-center hover:shadow-xl transition relative overflow-hidden group">
-                <div class="w-36 h-36 mx-auto rounded-full p-1 bg-gradient-to-tr from-gold-500 to-maroon-800 shadow-md mb-4">
-                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?fit=crop&w=400&h=400&q=80" 
-                         alt="Bride Ananya" 
-                         onerror="this.src='https://placehold.co/400x400/5c131d/ffffff?text=Ananya'"
-                         class="w-full h-full object-cover rounded-full">
-                </div>
-                <h3 class="text-2xl font-serif font-bold text-maroon-950">Ananya Reddy</h3>
-                <p class="text-xs font-cinzel uppercase tracking-widest text-gold-600 font-medium mb-3">The Bride</p>
-                <p class="text-slate-600 text-sm leading-relaxed mb-4">
-                    Daughter of Smt. Shailaja &amp; Sri Venkat Reddy. Product designer, classical dancer, and the spontaneous dreamer of the two.
-                </p>
-                <div class="text-xs text-maroon-900 font-medium italic">"Ready to dance, laugh, and celebrate with all our loved ones."</div>
-            </div>
+        <!-- Muhurtham Highlight -->
+        <div class="bg-gradient-to-r from-[#6e1818] to-[#8c2525] text-amber-100 p-2.5 rounded-lg shadow-sm">
+          <p class="text-[10px] uppercase tracking-widest font-bold text-amber-300">Sumuhurtham (Pelli)</p>
+          <p class="font-cinzel text-sm font-bold mt-0.5">Thursday, 5th June, 2025</p>
+          <p class="text-xs text-amber-200">8:11 AM (Mithuna Lagnam) &bull; Lunch Follows</p>
+          <p class="text-[11px] text-amber-100 font-medium mt-1">SS Convention, Shamshabad, Hyderabad</p>
         </div>
+      </div>
+
+      <!-- Interactive Tab Buttons (Haldi, Sangeeth, Pelli, Reception) -->
+      <div class="grid grid-cols-4 gap-1 mb-3 text-center">
+        <button onclick="switchTab('tab-haldi', this)" class="event-tab bg-[#f3ecda] text-[#7a591e] py-1.5 px-1 rounded-md text-[11px] font-bold tracking-wide active-tab border border-amber-300">Haldi</button>
+        <button onclick="switchTab('tab-sangeeth', this)" class="event-tab bg-white text-gray-600 py-1.5 px-1 rounded-md text-[11px] font-bold tracking-wide border border-gray-200">Sangeeth</button>
+        <button onclick="switchTab('tab-pelli', this)" class="event-tab bg-white text-gray-600 py-1.5 px-1 rounded-md text-[11px] font-bold tracking-wide border border-gray-200">Muhurtham</button>
+        <button onclick="switchTab('tab-reception', this)" class="event-tab bg-white text-gray-600 py-1.5 px-1 rounded-md text-[11px] font-bold tracking-wide border border-gray-200">Reception</button>
+      </div>
+
+      <!-- Tab Content Area -->
+      <div class="bg-white p-3.5 rounded-xl border border-amber-200 shadow-sm flex-1 mb-3">
+        <!-- HALDI -->
+        <div id="tab-haldi" class="tab-content active text-left">
+          <div class="flex justify-between items-center border-b pb-1 mb-2">
+            <span class="text-xs font-bold text-[#b45309] uppercase tracking-wider">Mangala Snanam &amp; Pasupu</span>
+            <span class="text-[11px] bg-amber-100 text-amber-800 px-2 py-0.5 rounded font-bold">9:00 AM</span>
+          </div>
+          <p class="text-xs text-gray-700"><strong>Date:</strong> Wednesday, 4th June 2025</p>
+          <p class="text-xs text-gray-700"><strong>Attire:</strong> Traditional Yellows &amp; South Indian Pattu Kurtas</p>
+          <p class="text-xs text-[#5f6e52] mt-1 font-medium">📍 Venue: Anvaya Lawns, Financial District, Hyderabad</p>
+          <p class="text-[11px] text-gray-500 italic mt-2">Traditional Telugu breakfast &amp; festivities with dhol &amp; mangala vaadyalu.</p>
+        </div>
+
+        <!-- SANGEETH -->
+        <div id="tab-sangeeth" class="tab-content text-left">
+          <div class="flex justify-between items-center border-b pb-1 mb-2">
+            <span class="text-xs font-bold text-[#6b21a8] uppercase tracking-wider">Musical Sangeeth Night</span>
+            <span class="text-[11px] bg-purple-100 text-purple-800 px-2 py-0.5 rounded font-bold">7:00 PM</span>
+          </div>
+          <p class="text-xs text-gray-700"><strong>Date:</strong> Wednesday, 4th June 2025</p>
+          <p class="text-xs text-gray-700"><strong>Attire:</strong> Indo-Western / Glamour</p>
+          <p class="text-xs text-[#5f6e52] mt-1 font-medium">📍 Venue: Boulder Hills Golf Club, Gachibowli</p>
+          <p class="text-[11px] text-gray-500 italic mt-2">Dance performances, live Telugu/Bollywood music &amp; lavish dinner.</p>
+        </div>
+
+        <!-- PELLI / MUHURTHAM -->
+        <div id="tab-pelli" class="tab-content text-left">
+          <div class="flex justify-between items-center border-b pb-1 mb-2">
+            <span class="text-xs font-bold text-[#b91c1c] uppercase tracking-wider">Pelli / Kalyana Mahotsavam</span>
+            <span class="text-[11px] bg-red-100 text-red-800 px-2 py-0.5 rounded font-bold">8:11 AM</span>
+          </div>
+          <p class="text-xs text-gray-700"><strong>Date:</strong> Thursday, 5th June 2025 (Mithuna Lagnam)</p>
+          <p class="text-xs text-gray-700"><strong>Rituals:</strong> Jeelakarra Bellam, Mangalasutra Dharana, Saptapadi</p>
+          <p class="text-xs text-[#5f6e52] mt-1 font-medium">📍 Venue: SS Convention, Shamshabad, Hyderabad</p>
+          <p class="text-[11px] text-gray-500 italic mt-2">Traditional Andhra bhojanam served following the ceremony.</p>
+        </div>
+
+        <!-- RECEPTION -->
+        <div id="tab-reception" class="tab-content text-left">
+          <div class="flex justify-between items-center border-b pb-1 mb-2">
+            <span class="text-xs font-bold text-[#1e3a8a] uppercase tracking-wider">Grand Wedding Reception</span>
+            <span class="text-[11px] bg-blue-100 text-blue-800 px-2 py-0.5 rounded font-bold">7:00 PM</span>
+          </div>
+          <p class="text-xs text-gray-700"><strong>Date:</strong> Thursday, 5th June 2025</p>
+          <p class="text-xs text-gray-700"><strong>Attire:</strong> Formal Silk Suits &amp; Lehengas</p>
+          <p class="text-xs text-[#5f6e52] mt-1 font-medium">📍 Venue: SS Convention Royal Ballroom, Shamshabad</p>
+          <p class="text-[11px] text-gray-500 italic mt-2">Join us for an evening of greetings, music, and royal feast.</p>
+        </div>
+      </div>
+
+      <!-- Action Buttons: RSVP & Location -->
+      <div class="space-y-2">
+        <!-- REPLACE 'https://forms.google.com' WITH YOUR ACTUAL GOOGLE FORM URL -->
+        <a id="rsvpLink" href="https://forms.google.com" target="_blank" rel="noopener noreferrer" class="w-full block py-2.5 px-4 bg-gradient-to-r from-[#801919] via-[#a32a2a] to-[#801919] text-amber-200 font-cinzel font-bold text-center text-xs tracking-widest rounded-lg shadow-md hover:scale-[1.01] active:scale-[0.98] transition-transform">
+          ✍️ RSVP VIA GOOGLE FORM
+        </a>
+
+        <div class="flex gap-2">
+          <a href="https://maps.google.com/?q=SS+Convention+Shamshabad" target="_blank" rel="noopener noreferrer" class="flex-1 py-2 px-3 bg-[#e8deca] text-[#4b3c22] font-semibold text-center text-[11px] rounded-md tracking-wider">
+            📍 Open Venue Map
+          </a>
+          <button onclick="resetInvitation()" class="px-3 py-2 bg-gray-100 text-gray-600 rounded-md text-[11px] font-semibold">
+            🔄 Replay
+          </button>
+        </div>
+      </div>
+
+      <footer class="text-center mt-3 pt-2 border-t border-amber-200">
+        <p class="text-[10px] text-gray-500 font-medium">With Best Compliments &bull; Manepally Family</p>
+      </footer>
     </section>
 
-    <!-- FOUR WEDDING EVENTS (HALDI, SANGEETH, PELLI, RECEPTION) -->
-    <section id="events" class="py-20 bg-gradient-to-b from-[#fbf8f2] via-amber-50/50 to-[#fbf8f2] border-t border-b border-gold-200/60">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-16">
-                <span class="text-gold-600 font-cinzel text-xs uppercase tracking-widest font-semibold block mb-2">Celebrations</span>
-                <h2 class="text-3xl sm:text-5xl font-serif text-maroon-950 font-bold">The Wedding Festivities</h2>
-                <div class="w-20 h-0.5 bg-gold-500 mx-auto mt-4"></div>
-                <p class="mt-4 text-slate-600 text-sm sm:text-base">
-                    Join us across two joyful days of colors, music, sacred mantras, and heartfelt celebrations.
-                </p>
-            </div>
+    <!-- Bottom Decorative Border (Banana Leaves & Floral Feet) -->
+    <div class="relative w-full h-8 bg-gradient-to-t from-[#33422d] to-transparent pointer-events-none flex justify-between items-end px-3 pb-1">
+      <span class="text-lg">🌿</span>
+      <span class="text-xs text-amber-200 font-cinzel tracking-widest">SUBHAM</span>
+      <span class="text-lg">🌿</span>
+    </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                
-                <!-- 1. HALDI / PASUPU FUNCTION -->
-                <div class="bg-warmcard rounded-2xl overflow-hidden border border-amber-200/80 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
-                    <div class="h-3 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500"></div>
-                    <div class="p-6 sm:p-8 flex-1">
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-900 border border-amber-300">
-                                Day 1 Morning
-                            </span>
-                            <span class="text-xs font-cinzel uppercase text-slate-500 tracking-wider">Pasupu Utsavam</span>
-                        </div>
-                        
-                        <h3 class="text-2xl sm:text-3xl font-serif font-bold text-maroon-950 mb-2">Haldi &amp; Mangala Snanam</h3>
-                        <p class="text-slate-600 text-sm mb-6">
-                            A vibrant morning filled with fragrant turmeric, floral showers, music, and blessings as we prepare for the big step.
-                        </p>
+  </div>
 
-                        <div class="space-y-3 text-sm text-slate-700 border-t border-slate-100 pt-4">
-                            <div class="flex items-start gap-3">
-                                <i data-lucide="calendar" class="w-4 h-4 text-amber-600 shrink-0 mt-0.5"></i>
-                                <div>
-                                    <span class="font-semibold block text-slate-900">Friday, December 13, 2026</span>
-                                    <span class="text-xs text-slate-500">09:30 AM onwards</span>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <i data-lucide="map-pin" class="w-4 h-4 text-amber-600 shrink-0 mt-0.5"></i>
-                                <div>
-                                    <span class="font-semibold block text-slate-900">The Courtyard, Palm Green Lawns</span>
-                                    <span class="text-xs text-slate-500">Jubilee Hills, Hyderabad</span>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <i data-lucide="shirt" class="w-4 h-4 text-amber-600 shrink-0 mt-0.5"></i>
-                                <div>
-                                    <span class="font-semibold block text-slate-900">Dress Code: Sunshine &amp; Yellows</span>
-                                    <span class="text-xs text-slate-500">Yellow Kurtas, Mustard Sarees, vibrant floral ethnic wear</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="px-6 py-4 bg-amber-50/50 border-t border-amber-100 flex items-center justify-between">
-                        <span class="text-xs text-amber-800 font-medium">South Indian Traditional Brunch included</span>
-                        <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-xs font-bold text-maroon-900 hover:text-gold-600 transition gap-1">
-                            <span>Open Map</span>
-                            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-                        </a>
-                    </div>
-                </div>
+  <!-- JavaScript Controls -->
+  <script>
+    function openTempleDoors() {
+      const doorScene = document.getElementById('doorScene');
+      doorScene.classList.add('doors-open');
 
-                <!-- 2. SANGEETH & COCKTAIL -->
-                <div class="bg-warmcard rounded-2xl overflow-hidden border border-purple-200/80 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
-                    <div class="h-3 bg-gradient-to-r from-purple-800 via-pink-600 to-indigo-700"></div>
-                    <div class="p-6 sm:p-8 flex-1">
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-purple-100 text-purple-900 border border-purple-300">
-                                Day 1 Evening
-                            </span>
-                            <span class="text-xs font-cinzel uppercase text-slate-500 tracking-wider">Musical Night</span>
-                        </div>
-                        
-                        <h3 class="text-2xl sm:text-3xl font-serif font-bold text-maroon-950 mb-2">Sangeeth &amp; Celebration</h3>
-                        <p class="text-slate-600 text-sm mb-6">
-                            An energetic evening of high-voltage Tollywood beats, family choreographies, dinner, drinks, and lively dancing.
-                        </p>
+      // Transition smoothly to full Lagna Patrika after door open animation
+      setTimeout(() => {
+        document.getElementById('stage-doors').style.display = 'none';
+        const invStage = document.getElementById('stage-invitation');
+        invStage.classList.remove('hidden');
+        invStage.classList.add('flex');
+      }, 1400);
+    }
 
-                        <div class="space-y-3 text-sm text-slate-700 border-t border-slate-100 pt-4">
-                            <div class="flex items-start gap-3">
-                                <i data-lucide="calendar" class="w-4 h-4 text-purple-700 shrink-0 mt-0.5"></i>
-                                <div>
-                                    <span class="font-semibold block text-slate-900">Friday, December 13, 2026</span>
-                                    <span class="text-xs text-slate-500">07:00 PM onwards</span>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <i data-lucide="map-pin" class="w-4 h-4 text-purple-700 shrink-0 mt-0.5"></i>
-                                <div>
-                                    <span class="font-semibold block text-slate-900">Grand Ball Room, ITC Kohenur</span>
-                                    <span class="text-xs text-slate-500">HITEC City, Hyderabad</span>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <i data-lucide="sparkles" class="w-4 h-4 text-purple-700 shrink-0 mt-0.5"></i>
-                                <div>
-                                    <span class="font-semibold block text-slate-900">Dress Code: Indo-Western Glam</span>
-                                    <span class="text-xs text-slate-500">Shimmering Lehengas, Bandhgalas, Cocktail wear</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="px-6 py-4 bg-purple-50/50 border-t border-purple-100 flex items-center justify-between">
-                        <span class="text-xs text-purple-800 font-medium">Cocktails &amp; Dinner Buffet</span>
-                        <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-xs font-bold text-maroon-900 hover:text-gold-600 transition gap-1">
-                            <span>Open Map</span>
-                            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-                        </a>
-                    </div>
-                </div>
+    function switchTab(tabId, el) {
+      // Hide all contents
+      document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+      // Remove active tab highlight
+      document.querySelectorAll('.event-tab').forEach(b => {
+        b.classList.remove('bg-[#f3ecda]', 'text-[#7a591e]', 'border-amber-300');
+        b.classList.add('bg-white', 'text-gray-600', 'border-gray-200');
+      });
 
-                <!-- 3. PELLI / WEDDING MUHURTHAM -->
-                <div class="bg-warmcard rounded-2xl overflow-hidden border-2 border-gold-500/80 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between relative">
-                    <div class="absolute top-3 right-3 bg-maroon-950 text-gold-400 text-[10px] font-cinzel font-bold px-2 py-0.5 rounded tracking-widest border border-gold-400/40">
-                        MUHURTHAM
-                    </div>
-                    <div class="h-3 bg-gradient-to-r from-red-700 via-gold-500 to-maroon-900"></div>
-                    <div class="p-6 sm:p-8 flex-1">
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-red-100 text-maroon-900 border border-red-300">
-                                Day 2 Morning
-                            </span>
-                            <span class="text-xs font-cinzel uppercase text-gold-700 tracking-wider">Subhamastu</span>
-                        </div>
-                        
-                        <h3 class="text-2xl sm:text-3xl font-serif font-bold text-maroon-950 mb-2">Pelli (Telugu Wedding)</h3>
-                        <p class="text-slate-600 text-sm mb-6">
-                            The auspicious South Indian wedding ceremony featuring Jeelakarra Bellam, Mangalasutra Dharana, and Saptapadi.
-                        </p>
+      // Show selected tab
+      document.getElementById(tabId).classList.add('active');
+      el.classList.add('bg-[#f3ecda]', 'text-[#7a591e]', 'border-amber-300');
+      el.classList.remove('bg-white', 'text-gray-600', 'border-gray-200');
+    }
 
-                        <div class="space-y-3 text-sm text-slate-700 border-t border-slate-100 pt-4">
-                            <div class="flex items-start gap-3">
-                                <i data-lucide="clock" class="w-4 h-4 text-maroon-800 shrink-0 mt-0.5"></i>
-                                <div>
-                                    <span class="font-semibold block text-slate-900">Saturday, December 14, 2026</span>
-                                    <span class="text-xs text-maroon-900 font-bold">Sumuhurtham: 09:27 AM</span>
-                                    <span class="text-xs text-slate-500 block">(Baraat arrives at 08:00 AM)</span>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <i data-lucide="map-pin" class="w-4 h-4 text-maroon-800 shrink-0 mt-0.5"></i>
-                                <div>
-                                    <span class="font-semibold block text-slate-900">Fort Grand Convention Center</span>
-                                    <span class="text-xs text-slate-500">Shamshabad, Hyderabad</span>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <i data-lucide="gem" class="w-4 h-4 text-maroon-800 shrink-0 mt-0.5"></i>
-                                <div>
-                                    <span class="font-semibold block text-slate-900">Dress Code: Traditional South Indian</span>
-                                    <span class="text-xs text-slate-500">Kanjeevaram Pattu Sarees, Silk Dhotis &amp; Kurtas</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="px-6 py-4 bg-red-50/50 border-t border-red-100 flex items-center justify-between">
-                        <span class="text-xs text-maroon-900 font-medium">Traditional Telugu Wedding Feast (Vindu Bhojanam)</span>
-                        <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-xs font-bold text-maroon-900 hover:text-gold-600 transition gap-1">
-                            <span>Open Map</span>
-                            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- 4. RECEPTION -->
-                <div class="bg-warmcard rounded-2xl overflow-hidden border border-slate-300 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
-                    <div class="h-3 bg-gradient-to-r from-maroon-900 via-gold-400 to-slate-900"></div>
-                    <div class="p-6 sm:p-8 flex-1">
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-800 border border-slate-300">
-                                Day 2 Evening
-                            </span>
-                            <span class="text-xs font-cinzel uppercase text-slate-500 tracking-wider">Grand Finale</span>
-                        </div>
-                        
-                        <h3 class="text-2xl sm:text-3xl font-serif font-bold text-maroon-950 mb-2">Grand Reception</h3>
-                        <p class="text-slate-600 text-sm mb-6">
-                            An evening of formal congratulations, photo ops with the newlyweds, live acoustic music, and a celebratory multi-cuisine banquet.
-                        </p>
-
-                        <div class="space-y-3 text-sm text-slate-700 border-t border-slate-100 pt-4">
-                            <div class="flex items-start gap-3">
-                                <i data-lucide="calendar" class="w-4 h-4 text-maroon-800 shrink-0 mt-0.5"></i>
-                                <div>
-                                    <span class="font-semibold block text-slate-900">Saturday, December 14, 2026</span>
-                                    <span class="text-xs text-slate-500">07:00 PM onwards</span>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <i data-lucide="map-pin" class="w-4 h-4 text-maroon-800 shrink-0 mt-0.5"></i>
-                                <div>
-                                    <span class="font-semibold block text-slate-900">The Royal Palace Lawns</span>
-                                    <span class="text-xs text-slate-500">Banjara Hills, Hyderabad</span>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <i data-lucide="award" class="w-4 h-4 text-maroon-800 shrink-0 mt-0.5"></i>
-                                <div>
-                                    <span class="font-semibold block text-slate-900">Dress Code: Royal Formal / Black Tie</span>
-                                    <span class="text-xs text-slate-500">Sherwanis, Tuxedos, Designer Sarees &amp; Gowns</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="px-6 py-4 bg-slate-50 border-t border-slate-200 flex items-center justify-between">
-                        <span class="text-xs text-slate-700 font-medium">Grand Banquet &amp; Live Music</span>
-                        <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-xs font-bold text-maroon-900 hover:text-gold-600 transition gap-1">
-                            <span>Open Map</span>
-                            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- TIMELINE SCHEDULE AT A GLANCE -->
-    <section id="schedule" class="py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-        <div class="text-center mb-14">
-            <span class="text-gold-600 font-cinzel text-xs uppercase tracking-widest font-semibold block mb-2">Schedule</span>
-            <h2 class="text-3xl sm:text-4xl font-serif text-maroon-950 font-bold">Chronicle of Events</h2>
-            <div class="w-16 h-0.5 bg-gold-500 mx-auto mt-4"></div>
-        </div>
-
-        <div class="relative border-l-2 border-gold-400/40 ml-4 sm:ml-32 space-y-10">
-            <!-- Item 1 -->
-            <div class="relative pl-6 sm:pl-8 group">
-                <div class="absolute -left-2.5 top-1.5 w-5 h-5 rounded-full bg-gold-500 border-4 border-ivory shadow"></div>
-                <div class="sm:absolute sm:-left-32 sm:top-1 text-xs font-cinzel font-bold text-maroon-900 uppercase">
-                    Dec 13 &bull; 09:30 AM
-                </div>
-                <h4 class="text-lg font-serif font-bold text-maroon-950">Haldi &amp; Mangala Snanam</h4>
-                <p class="text-xs text-slate-500">Palm Green Lawns &bull; Floral &amp; Turmeric celebrations</p>
-            </div>
-
-            <!-- Item 2 -->
-            <div class="relative pl-6 sm:pl-8 group">
-                <div class="absolute -left-2.5 top-1.5 w-5 h-5 rounded-full bg-gold-500 border-4 border-ivory shadow"></div>
-                <div class="sm:absolute sm:-left-32 sm:top-1 text-xs font-cinzel font-bold text-maroon-900 uppercase">
-                    Dec 13 &bull; 07:00 PM
-                </div>
-                <h4 class="text-lg font-serif font-bold text-maroon-950">Sangeeth Night</h4>
-                <p class="text-xs text-slate-500">ITC Kohenur Ballroom &bull; Music, performances &amp; dinner</p>
-            </div>
-
-            <!-- Item 3 -->
-            <div class="relative pl-6 sm:pl-8 group">
-                <div class="absolute -left-2.5 top-1.5 w-5 h-5 rounded-full bg-maroon-900 border-4 border-gold-400 shadow"></div>
-                <div class="sm:absolute sm:-left-32 sm:top-1 text-xs font-cinzel font-bold text-maroon-900 uppercase">
-                    Dec 14 &bull; 09:27 AM
-                </div>
-                <h4 class="text-lg font-serif font-bold text-maroon-950">Pelli / Muhurtham</h4>
-                <p class="text-xs text-slate-500">Fort Grand &bull; Jeelakarra Bellam &amp; Traditional Feast</p>
-            </div>
-
-            <!-- Item 4 -->
-            <div class="relative pl-6 sm:pl-8 group">
-                <div class="absolute -left-2.5 top-1.5 w-5 h-5 rounded-full bg-gold-500 border-4 border-ivory shadow"></div>
-                <div class="sm:absolute sm:-left-32 sm:top-1 text-xs font-cinzel font-bold text-maroon-900 uppercase">
-                    Dec 14 &bull; 07:00 PM
-                </div>
-                <h4 class="text-lg font-serif font-bold text-maroon-950">Grand Reception</h4>
-                <p class="text-xs text-slate-500">Royal Palace Lawns &bull; Congratulations &amp; Banquet Dinner</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- VENUE & TRAVEL DETAILS -->
-    <section id="venue" class="py-20 bg-maroon-950 text-ivory">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-14">
-                <span class="text-gold-400 font-cinzel text-xs uppercase tracking-widest font-semibold block mb-2">Location &amp; Stay</span>
-                <h2 class="text-3xl sm:text-4xl font-serif text-ivory font-bold">Venues &amp; Accommodations</h2>
-                <div class="w-16 h-0.5 bg-gold-400 mx-auto mt-4"></div>
-                <p class="mt-4 text-slate-300 text-sm">
-                    Hyderabad is easy to reach via Rajiv Gandhi International Airport (HYD) and Secunderabad / Hyderabad Deccan railway stations.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Card 1 -->
-                <div class="bg-maroon-900/60 border border-gold-500/30 rounded-xl p-6 text-center flex flex-col justify-between">
-                    <div>
-                        <div class="w-12 h-12 mx-auto rounded-full bg-gold-500/20 text-gold-400 flex items-center justify-center mb-4">
-                            <i data-lucide="plane" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="text-lg font-serif font-bold text-gold-300 mb-2">Airport Connectivity</h3>
-                        <p class="text-xs text-slate-300 leading-relaxed">
-                            Shamshabad Airport (HYD) is ~25 mins from the Wedding Muhurtham venue (Fort Grand) and ~40 mins from HITEC City.
-                        </p>
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-gold-500/20 text-xs text-gold-300/80">
-                        Airport Taxis &amp; Ubers available 24/7
-                    </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="bg-maroon-900/60 border border-gold-500/30 rounded-xl p-6 text-center flex flex-col justify-between">
-                    <div>
-                        <div class="w-12 h-12 mx-auto rounded-full bg-gold-500/20 text-gold-400 flex items-center justify-center mb-4">
-                            <i data-lucide="hotel" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="text-lg font-serif font-bold text-gold-300 mb-2">Guest Accommodations</h3>
-                        <p class="text-xs text-slate-300 leading-relaxed">
-                            Room blocks have been reserved for outstation guests at ITC Kohenur and Palm Greens. Please mention code <strong>SIDDANANYA</strong>.
-                        </p>
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-gold-500/20 text-xs text-gold-300/80">
-                        Check-in: Dec 12, 12:00 PM
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="bg-maroon-900/60 border border-gold-500/30 rounded-xl p-6 text-center flex flex-col justify-between">
-                    <div>
-                        <div class="w-12 h-12 mx-auto rounded-full bg-gold-500/20 text-gold-400 flex items-center justify-center mb-4">
-                            <i data-lucide="car" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="text-lg font-serif font-bold text-gold-300 mb-2">Valet &amp; Shuttles</h3>
-                        <p class="text-xs text-slate-300 leading-relaxed">
-                            Dedicated complimentary valet parking is available across all 4 celebration locations. Shuttles run between hotels and venues.
-                        </p>
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-gold-500/20 text-xs text-gold-300/80">
-                        Contact Helpdesk on arrival
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- RSVP SECTION (REDIRECTS TO GOOGLE FORM) -->
-    <section id="rsvp" class="py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-        <div class="bg-gradient-to-br from-warmcard to-amber-50/70 border-2 border-gold-400 rounded-3xl p-8 sm:p-12 shadow-2xl text-center relative overflow-hidden">
-            <!-- Decorative Gold Corner accents -->
-            <div class="absolute -top-10 -right-10 w-28 h-28 bg-gold-400/10 rounded-full pointer-events-none"></div>
-            <div class="absolute -bottom-10 -left-10 w-28 h-28 bg-maroon-800/10 rounded-full pointer-events-none"></div>
-
-            <div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-maroon-950 text-gold-400 mb-6 shadow-md">
-                <i data-lucide="heart-handshake" class="w-7 h-7"></i>
-            </div>
-
-            <span class="text-gold-700 font-cinzel text-xs uppercase tracking-widest font-bold block mb-2">Kindly Respond</span>
-            <h2 class="text-3xl sm:text-5xl font-serif font-bold text-maroon-950 mb-4">Are You Joining Our Celebration?</h2>
-            <p class="text-slate-600 text-sm sm:text-base max-w-xl mx-auto mb-8">
-                Your presence and blessings mean the world to us and our families. Please let us know your travel plans and attendees so we can make your stay comfortable.
-            </p>
-
-            <!-- Instructions Notice -->
-            <div class="max-w-lg mx-auto bg-amber-100/70 border border-amber-300 text-amber-900 rounded-xl p-4 text-xs mb-8 flex items-center justify-center gap-2">
-                <i data-lucide="info" class="w-4 h-4 shrink-0"></i>
-                <span>Please fill out our quick 1-minute RSVP form by <strong>November 15, 2026</strong>.</span>
-            </div>
-
-            <!-- Big RSVP Redirect Button -->
-            <!-- REPLACE THE href VALUE BELOW WITH YOUR GOOGLE FORM LINK -->
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a id="google-form-link" 
-                   href="https://forms.google.com" 
-                   target="_blank" 
-                   rel="noopener noreferrer"
-                   class="w-full sm:w-auto px-10 py-4 rounded-full bg-maroon-950 hover:bg-maroon-900 text-gold-300 hover:text-gold-200 font-cinzel font-bold text-base tracking-widest uppercase shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3">
-                    <span>Fill RSVP on Google Forms</span>
-                    <i data-lucide="arrow-up-right" class="w-5 h-5 text-gold-400"></i>
-                </a>
-
-                <button id="copy-link-btn" 
-                        class="w-full sm:w-auto px-6 py-4 rounded-full border border-maroon-900/40 text-maroon-950 hover:bg-gold-500/10 font-medium text-xs uppercase tracking-wider transition flex items-center justify-center gap-2">
-                    <i data-lucide="copy" class="w-4 h-4"></i>
-                    <span id="copy-btn-text">Share Wedding Link</span>
-                </button>
-            </div>
-
-            <p class="text-[11px] text-slate-500 mt-6 italic">
-                Having trouble with the form? Feel free to reach out via WhatsApp at +91 98765 43210.
-            </p>
-        </div>
-    </section>
-
-    <!-- FREQUENTLY ASKED QUESTIONS (FAQ) -->
-    <section id="faq" class="py-16 px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto">
-        <div class="text-center mb-10">
-            <span class="text-gold-600 font-cinzel text-xs uppercase tracking-widest font-semibold block mb-1">Assistance</span>
-            <h2 class="text-2xl sm:text-3xl font-serif text-maroon-950 font-bold">Frequently Asked Questions</h2>
-        </div>
-
-        <div class="space-y-4">
-            <!-- FAQ 1 -->
-            <details class="group bg-warmcard rounded-xl p-5 border border-gold-200/80 shadow-sm cursor-pointer [&_summary::-webkit-details-marker]:hidden">
-                <summary class="flex items-center justify-between font-serif font-bold text-maroon-950 text-base">
-                    <span>Is there transport between the hotels and wedding venues?</span>
-                    <i data-lucide="chevron-down" class="w-5 h-5 text-gold-600 group-open:rotate-180 transition-transform"></i>
-                </summary>
-                <p class="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
-                    Yes, dedicated guest shuttle buses will run between ITC Kohenur and Fort Grand (Wedding Muhurtham venue) starting at 7:00 AM on December 14.
-                </p>
-            </details>
-
-            <!-- FAQ 2 -->
-            <details class="group bg-warmcard rounded-xl p-5 border border-gold-200/80 shadow-sm cursor-pointer [&_summary::-webkit-details-marker]:hidden">
-                <summary class="flex items-center justify-between font-serif font-bold text-maroon-950 text-base">
-                    <span>What is the dress code for non-South Indian / international guests?</span>
-                    <i data-lucide="chevron-down" class="w-5 h-5 text-gold-600 group-open:rotate-180 transition-transform"></i>
-                </summary>
-                <p class="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
-                    Any modest formal attire or Indian ethnic wear is warmly welcomed! Bright yellows/florals for Haldi, glamorous party attire for Sangeeth, traditional silk kurta or saree for Pelli, and suit or formal dress for Reception.
-                </p>
-            </details>
-
-            <!-- FAQ 3 -->
-            <details class="group bg-warmcard rounded-xl p-5 border border-gold-200/80 shadow-sm cursor-pointer [&_summary::-webkit-details-marker]:hidden">
-                <summary class="flex items-center justify-between font-serif font-bold text-maroon-950 text-base">
-                    <span>Are dietary preferences catered for?</span>
-                    <i data-lucide="chevron-down" class="w-5 h-5 text-gold-600 group-open:rotate-180 transition-transform"></i>
-                </summary>
-                <p class="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
-                    Absolutely! Pure vegetarian traditional Telugu meals will be served for Haldi and Pelli. The Sangeeth and Reception will feature multi-cuisine vegetarian, non-vegetarian, and Jain-friendly options.
-                </p>
-            </details>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="bg-maroon-950 text-gold-300/80 py-12 px-4 border-t border-gold-500/20 text-center">
-        <div class="max-w-4xl mx-auto space-y-4">
-            <h3 class="text-2xl font-cinzel text-gold-400 font-bold">Siddharth &amp; Ananya</h3>
-            <p class="text-xs tracking-widest uppercase text-slate-400">
-                #SidFoundHisAnanya &bull; December 2026
-            </p>
-            <div class="w-12 h-px bg-gold-500/40 mx-auto my-4"></div>
-            <p class="text-xs text-slate-400">
-                Crafted with love by the families. Built for hosting on GitHub Pages.
-            </p>
-        </div>
-    </footer>
-
-    <!-- INTERACTIVE JAVASCRIPT LOGIC -->
-    <script>
-        // Initialize Lucide Icons
-        lucide.createIcons();
-
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        mobileNavLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-
-        // Countdown Timer to Wedding Muhurtham (Dec 14, 2026, 09:27 AM IST)
-        const targetDate = new Date('2026-12-14T09:27:00+05:30').getTime();
-
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const difference = targetDate - now;
-
-            if (difference > 0) {
-                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-                document.getElementById('days').innerText = String(days).padStart(2, '0');
-                document.getElementById('hours').innerText = String(hours).padStart(2, '0');
-                document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
-                document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
-            } else {
-                document.getElementById('days').innerText = '00';
-                document.getElementById('hours').innerText = '00';
-                document.getElementById('minutes').innerText = '00';
-                document.getElementById('seconds').innerText = '00';
-            }
-        }
-
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
-
-        // Clipboard Copy Action
-        const copyBtn = document.getElementById('copy-link-btn');
-        const copyBtnText = document.getElementById('copy-btn-text');
-
-        copyBtn.addEventListener('click', () => {
-            const tempInput = document.createElement('input');
-            tempInput.value = window.location.href;
-            document.body.appendChild(tempInput);
-            tempInput.select();
-            document.execCommand('copy');
-            document.body.removeChild(tempInput);
-
-            copyBtnText.textContent = "Link Copied!";
-            setTimeout(() => {
-                copyBtnText.textContent = "Share Wedding Link";
-            }, 2500);
-        });
-    </script>
+    function resetInvitation() {
+      document.getElementById('doorScene').classList.remove('doors-open');
+      const invStage = document.getElementById('stage-invitation');
+      invStage.classList.add('hidden');
+      invStage.classList.remove('flex');
+      document.getElementById('stage-doors').style.display = 'flex';
+    }
+  </script>
 </body>
 </html>
